@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        console.log('Buscando jogos da FreeToGame API...');
+        console.log('✅ Proxy: Buscando jogos da FreeToGame API...');
 
         const response = await fetch('https://www.freetogame.com/api/games');
 
@@ -26,12 +26,12 @@ export default async function handler(req, res) {
 
         const data = await response.json();
 
-        console.log(`Encontrados ${data.length} jogos`);
+        console.log(`✅ Proxy: Encontrados ${data.length} jogos`);
 
         // Retornar os dados
         res.status(200).json(data);
     } catch (error) {
-        console.error('Erro no proxy:', error);
+        console.error('❌ Proxy erro:', error);
         res.status(500).json({
             error: 'Erro ao buscar jogos',
             details: error.message
