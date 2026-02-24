@@ -1,7 +1,5 @@
 # 🎮 GameQuest - Seu Gerenciador de Backlog de Jogos
 
-![GameQuest Banner](https://via.placeholder.com/1200x300/0A0A0F/3B82F6?text=GAMEQUEST+-+Time-to-Beat+Manager)
-
 ## 📋 Sobre o Projeto
 
 **GameQuest** é um web app desenvolvido para ajudar gamers a gerenciar seu backlog de jogos baseado no **tempo disponível** para jogar. Com uma interface cyberpunk e foco em usabilidade, o app filtra automaticamente os jogos que cabem no seu tempo livre.
