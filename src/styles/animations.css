@@ -1,0 +1,195 @@
+/* ============================================================
+   animations.css — GameQuest Cyberpunk Dark Keyframes
+   ============================================================ */
+
+/* ── Neon glow pulse ──────────────────────────────────────── */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@keyframes glow-purple {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.4), 0 0 20px rgba(168, 85, 247, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 50px rgba(168, 85, 247, 0.4);
+  }
+}
+
+@keyframes glow-cyan {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 50px rgba(0, 255, 255, 0.35);
+  }
+}
+
+/* ── Floating / levitation ────────────────────────────────── */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-3px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-0.5deg);
+  }
+}
+
+/* ── Slide-in entrance ────────────────────────────────────── */
+@keyframes cyber-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes cyber-slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes cyber-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Slow pulsate ─────────────────────────────────────────── */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* ── CRT Scanline ─────────────────────────────────────────── */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Horizontal scanline flash */
+@keyframes scanline-flash {
+  0%   { opacity: 0; }
+  2%   { opacity: 0.06; }
+  4%   { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ── Spinner ──────────────────────────────────────────────── */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* ── Flicker (neon light instability) ────────────────────── */
+@keyframes flicker {
+  0%,  90%, 100% { opacity: 1; }
+  91%            { opacity: 0.85; }
+  92%            { opacity: 1; }
+  93%            { opacity: 0.7; }
+  94%            { opacity: 1; }
+  95%            { opacity: 0.9; }
+  96%            { opacity: 1; }
+}
+
+/* ── Data stream (decorative) ─────────────────────────────── */
+@keyframes data-stream {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 200%;
+  }
+}
+
+/* ── Border trace ─────────────────────────────────────────── */
+@keyframes border-trace {
+  0% {
+    clip-path: inset(0 100% 100% 0);
+  }
+  25% {
+    clip-path: inset(0 0 100% 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  75% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 100% 0);
+  }
+}
+
+/* ── Utility animation classes ────────────────────────────── */
+.animate-glow          { animation: glow 2s ease-in-out infinite; }
+.animate-glow-purple   { animation: glow-purple 2s ease-in-out infinite; }
+.animate-glow-cyan     { animation: glow-cyan 2s ease-in-out infinite; }
+.animate-float         { animation: float 4s ease-in-out infinite; }
+.animate-float-subtle  { animation: float-subtle 5s ease-in-out infinite; }
+.animate-cyber-slide   { animation: cyber-slide 0.4s ease-out both; }
+.animate-cyber-fade    { animation: cyber-fade 0.35s ease-out both; }
+.animate-pulse-slow    { animation: pulse-slow 3s ease-in-out infinite; }
+.animate-scanline      { animation: scanline 8s linear infinite; }
+.animate-spin-slow     { animation: spin-slow 1.2s linear infinite; }
+.animate-flicker       { animation: flicker 5s linear infinite; }
+
+/* Staggered card entrance delays */
+.animate-cyber-slide.delay-50  { animation-delay: 50ms; }
+.animate-cyber-slide.delay-100 { animation-delay: 100ms; }
+.animate-cyber-slide.delay-150 { animation-delay: 150ms; }
+.animate-cyber-slide.delay-200 { animation-delay: 200ms; }
+.animate-cyber-slide.delay-300 { animation-delay: 300ms; }
+.animate-cyber-slide.delay-400 { animation-delay: 400ms; }

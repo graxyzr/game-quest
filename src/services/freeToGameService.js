@@ -1,0 +1,117 @@
+// src/services/freeToGameService.js
+import axios from 'axios';
+
+const PROXY_URL = 'https://corsproxy.io/?';
+const BASE_URL = 'https://www.freetogame.com/api';
+
+// Mapeamento de tempo de sessão por gênero
+const sessionLengthByGenre = {
+    'MMORPG': 60,
+    'Shooter': 20,
+    'Strategy': 40,
+    'MOBA': 30,
+    'Racing': 10,
+    'Sports': 15,
+    'Fighting': 10,
+    'Battle Royale': 25,
+    'Action': 15,
+    'Adventure': 20,
+    'Action RPG': 45,
+    'Card Game': 5,
+    'Fantasy': 30,
+    'Sci-Fi': 25,
+    'Open World': 50,
+    'Survival': 30,
+    'Pixel': 10,
+    'VR': 15,
+    'MMO': 60,
+    'Social': 15,
+    'Mobile': 10
+};
+
+// Mapeamento de tempo total por gênero
+const timeToBeatByGenre = {
+    'MMORPG': 100,
+    'Shooter': 15,
+    'Strategy': 30,
+    'MOBA': 50,
+    'Racing': 10,
+    'Sports': 20,
+    'Fighting': 8,
+    'Battle Royale': 25,
+    'Action': 12,
+    'Adventure': 15,
+    'Action RPG': 40,
+    'Card Game': 5,
+    'Fantasy': 25,
+    'Sci-Fi': 20,
+    'Open World': 45,
+    'Survival': 35,
+    'Pixel': 8,
+    'VR': 10,
+    'MMO': 80,
+    'Social': 5,
+    'Mobile': 8
+};
+
+export const getGames = async () => {
+    try {
+        const response = await axios.get(`${PROXY_URL}${encodeURIComponent(`${BASE_URL}/games`)}`);
+
+        return response.data.map(game => {
+            const genre = game.genre;
+
+            return {
+                id: game.id,
+                title: game.title,
+                coverUrl: game.thumbnail,
+                timeToBeat: timeToBeatByGenre[genre] || 20,
+                category: genre,
+                sessionLength: sessionLengthByGenre[genre] || 25,
+                platform: game.platform,
+                publisher: game.publisher,
+                developer: game.developer,
+                releaseDate: game.release_date,
+                description: game.short_description,
+                owned: true
+            };
+        });
+    } catch (error) {
+        console.error('Erro ao buscar jogos:', error);
+        return [];
+    }
+};
+
+// Para debug: ver quais gêneros estão vindo da API
+export const getGamesWithDebug = async () => {
+    try {
+        const response = await axios.get(`${PROXY_URL}${encodeURIComponent(`${BASE_URL}/games`)}`);
+
+        console.log('Gêneros disponíveis:', [...new Set(response.data.map(g => g.genre))]);
+
+        return response.data.map(game => {
+            const genre = game.genre;
+            const sessionTime = sessionLengthByGenre[genre] || 25;
+
+            console.log(`Jogo: ${game.title} | Gênero: ${genre} | Sessão: ${sessionTime}min`);
+
+            return {
+                id: game.id,
+                title: game.title,
+                coverUrl: game.thumbnail,
+                timeToBeat: timeToBeatByGenre[genre] || 20,
+                category: genre,
+                sessionLength: sessionTime,
+                platform: game.platform,
+                publisher: game.publisher,
+                developer: game.developer,
+                releaseDate: game.release_date,
+                description: game.short_description,
+                owned: true
+            };
+        });
+    } catch (error) {
+        console.error('Erro ao buscar jogos:', error);
+        return [];
+    }
+};
