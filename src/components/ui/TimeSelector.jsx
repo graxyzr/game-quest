@@ -1,11 +1,5 @@
 import { timeSelectorOptions } from '../../styles/theme'
 
-/**
- * TimeSelector — Cyberpunk time picker
- * Props:
- *   selected   {number} - currently selected time in minutes
- *   onChange   {fn}     - (minutes: number) => void
- */
 export default function TimeSelector({ selected, onChange }) {
     return (
         <div className="flex flex-col gap-2">

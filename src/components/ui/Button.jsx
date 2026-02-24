@@ -1,8 +1,3 @@
-/**
- * Button.jsx — Base cyberpunk button component
- * Variants: 'primary' | 'secondary' | 'ghost' | 'danger'
- * Sizes: 'sm' | 'md' | 'lg'
- */
 export default function Button({
     children,
     variant = 'primary',

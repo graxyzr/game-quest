@@ -2,13 +2,11 @@ import { useState, useMemo, useEffect } from 'react'
 import { Search, RefreshCw, Zap, Gamepad2, Clock, Coffee, UtensilsCrossed, Moon, Calendar, Timer } from 'lucide-react'
 import { getGames } from './services/freeToGameService';
 
-// ── Google Fonts injected at runtime ──────────────────────────
 const fontLink = document.createElement('link')
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap'
 fontLink.rel = 'stylesheet'
 document.head.appendChild(fontLink)
 
-// ── Design tokens ─────────────────────────────────────────────
 const C = {
   bgPrimary: '#0A0A0F',
   bgSecondary: '#121217',
@@ -38,7 +36,6 @@ const QUICK_FILTERS = [
   { id: 'weekend', label: 'Fim de Semana', Icon: Calendar, max: 300, color: '#3B82F6', bg: 'rgba(59,130,246,0.12)', border: 'rgba(59,130,246,0.4)' },
 ]
 
-// ── Inject global CSS (MANTIDO IGUAL) ─────────────────────────
 if (!document.getElementById('gq-styles')) {
   const s = document.createElement('style')
   s.id = 'gq-styles'
@@ -72,7 +69,6 @@ if (!document.getElementById('gq-styles')) {
   document.head.appendChild(s)
 }
 
-// ── Helpers ───────────────────────────────────────────────────
 function fmt(min) {
   if (!min) return '—'
   if (min < 60) return `${min}min`
@@ -80,7 +76,6 @@ function fmt(min) {
   return m ? `${h}h ${m}min` : `${h}h`
 }
 
-// ── Sub-components ────────────────────────────────────────────
 function StatChip({ value, label, color }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '5px 14px', background: 'rgba(28,28,36,.85)', border: '1px solid rgba(255,255,255,.07)', borderRadius: 6 }}>
@@ -178,7 +173,6 @@ function GameCard({ game, index }) {
   )
 }
 
-// ── App ───────────────────────────────────────────────────────
 export default function App() {
   const [games, setGames] = useState([])
   const [loading, setLoading] = useState(true)

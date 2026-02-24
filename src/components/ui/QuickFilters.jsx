@@ -8,12 +8,6 @@ const iconMap = {
     Calendar: Calendar,
 }
 
-/**
- * QuickFilters — colored pill buttons for time presets
- * Props:
- *   active   {string|null} - currently active filter id
- *   onChange {fn}          - (id: string|null) => void
- */
 export default function QuickFilters({ active, onChange }) {
     return (
         <div className="flex flex-col gap-2">

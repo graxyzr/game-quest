@@ -1,12 +1,9 @@
-// src/services/freeToGameService.js
-
 export const getGames = async () => {
     console.log('🎮 Usando dados de fallback com imagens placeholder');
     return getFallbackGames();
 };
 
 const getFallbackGames = () => [
-    // === INDIE / ROGUELIKE ===
     {
         id: 1,
         title: 'Hades',

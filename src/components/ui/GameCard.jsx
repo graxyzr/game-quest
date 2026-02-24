@@ -1,8 +1,5 @@
 import { Clock, Tag, Timer } from 'lucide-react'
 
-/**
- * Format minutes → "Xh Ym" or "Xmin"
- */
 function formatTime(minutes) {
     if (!minutes) return '—'
     if (minutes < 60) return `${minutes}min`
@@ -11,19 +8,6 @@ function formatTime(minutes) {
     return m > 0 ? `${h}h ${m}min` : `${h}h`
 }
 
-/**
- * GameCard — Cyberpunk game card with cover art
- * Props:
- *   game {object}:
- *     title       {string}
- *     cover       {string}  - image URL
- *     category    {string}  - genre/category label
- *     totalTime   {number}  - total playtime in minutes
- *     sessionTime {number}  - recommended session in minutes
- *     available   {boolean} - fits in current time window
- *   index {number}          - for stagger animation
- *   onClick {fn}
- */
 export default function GameCard({ game, index = 0, onClick }) {
     const {
         title = 'Unknown Game',

@@ -1,13 +1,5 @@
 import { RefreshCw, Zap, Gamepad2 } from 'lucide-react'
 
-/**
- * Header — GameQuest Cyberpunk Dark
- * Props:
- *   available  {number}  - games available for selected time
- *   total      {number}  - total games in backlog
- *   onRefresh  {fn}      - callback to refresh data
- *   loading    {boolean} - shows spinner on refresh btn
- */
 export default function Header({ available = 0, total = 0, onRefresh, loading = false }) {
     return (
         <header className="glass-header">
