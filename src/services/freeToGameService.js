@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Proxy CORS público que funciona em produção
-const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
+const PROXY_URL = 'https://thingproxy.freeboard.io/fetch/';
 const BASE_URL = 'https://www.freetogame.com/api';
 
 export const getGames = async () => {
