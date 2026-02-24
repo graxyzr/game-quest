@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Search, RefreshCw, Zap, Gamepad2, Clock, Coffee, UtensilsCrossed, Moon, Calendar, Timer } from 'lucide-react'
-import { getGamesWithDebug as getGames } from './services/freeToGameService'
+import { getGames } from './services/freeToGameService';
 
 // ── Google Fonts injected at runtime ──────────────────────────
 const fontLink = document.createElement('link')
