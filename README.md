@@ -70,7 +70,7 @@ game-quest/
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/game-quest.git
+git clone https://github.com/graxyzr/game-quest.git
 cd game-quest
 ```
 
